@@ -1,11 +1,12 @@
-#demo.yaml. This workflow will install Python dependencies, run tests with a variety of
-# Python versions
-name: Python app
+# This workflow will install Python dependencies, run tests with a variety of Python versions.
+name: Python package
+
 on:
   push:
-    branches: ["main"]
+    branches: [ "main"]
   pull_request:
     branches: [ "main"]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,21 +14,23 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
+
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version}}
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version}}
-      - name: Install Dependencies
+
+      - name: Install dependencies
         run: |
-          make install
-      - name: Lint with pylint
+          python -m pip install --upgrade pip
+          pip install -r requirements/requirements.txt
+
+      - name: train_pipeline
         run: |
-          make lint
+          python project_with_test/titanic_model/train_pipeline.py
+
       - name: test with pytest
         run: |
-          make test
-      - name: Format code with Black
-        run: |
-          make format
+          pytest

@@ -1,39 +1,46 @@
+"""
+This module defines the setup and installation instructions for the project.
+"""
+
 from pathlib import Path
 
 from setuptools import find_packages, setup
 
 # Package meta-data.
-NAME = 'bikeshare_model'
+NAME = "bikeshare_model"
 DESCRIPTION = "Bikeshare dataset Regression model package "
 EMAIL = "------"
 AUTHOR = "----------"
 REQUIRES_PYTHON = ">=3.7.0"
 
-
-long_description = DESCRIPTION
-
 # Load the package's VERSION file as a dictionary.
 about = {}
 ROOT_DIR = Path(__file__).resolve().parent
 print(ROOT_DIR)
-REQUIREMENTS_DIR = ROOT_DIR / 'requirements'
-PACKAGE_DIR = ROOT_DIR / 'bikeshare_model'
-with open(PACKAGE_DIR / "VERSION") as f:
+REQUIREMENTS_DIR = ROOT_DIR / "requirements"
+PACKAGE_DIR = ROOT_DIR / "bikeshare_model"
+with open(PACKAGE_DIR / "VERSION", encoding="UTF-8") as f:
     _version = f.read().strip()
     about["__version__"] = _version
-    
+
+
 def list_reqs(fname="requirements.txt"):
-    with open(REQUIREMENTS_DIR / fname) as fd:
-        return fd.read().splitlines()
-    
+    """
+    This fun returns list of requirements.
+    Args:
+        fname : filename
+    """
+    with open(REQUIREMENTS_DIR / fname, encoding="UTF-8") as file_descriptor:
+        return file_descriptor.read().splitlines()
+
 
 # Where the magic happens:
 setup(
     name=NAME,
     version=about["__version__"],
     description=DESCRIPTION,
-    long_description=long_description,
-    long_description_content_type="text/markdown",
+    DESCRIPTION=DESCRIPTION,
+    DESCRIPTION_content_type="text/markdown",
     author=AUTHOR,
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
@@ -58,4 +65,3 @@ setup(
         "Programming Language :: Python :: Implementation :: PyPy",
     ],
 )
-

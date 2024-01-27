@@ -29,7 +29,7 @@ jobs:
 
       - name: train_pipeline
         run: |
-          python project_with_test/titanic_model/train_pipeline.py
+          python bikeshare_model/train_pipeline.py
 
       - name: test with pytest
         run: |

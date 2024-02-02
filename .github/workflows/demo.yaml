@@ -36,9 +36,6 @@ jobs:
           pytest
 
 # Vikrant added
-      - name: Package
-        run: |
-          make package
       - name: Dockerize and push
         run: |
           make dockerize_api

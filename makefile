@@ -11,8 +11,6 @@ train:
 	python bikeshare_model/train_pipeline.py  
 
 # test step - already present below this portion
-package:
-	python -m build
 
 dockerize_api:
 	docker build . -t vikrantpayal/bikeshare-fastapi:3-feb

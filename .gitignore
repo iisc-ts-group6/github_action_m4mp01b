@@ -1,3 +1,7 @@
+# Vikrant added
+/bikeshare_model_api/*.whl 
+/dist/*.whl
+/bikeshare_model/trained_models/*.pkl 
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

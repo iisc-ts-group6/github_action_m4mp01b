@@ -4,8 +4,8 @@ FROM python:3.10
 # copy application files
 ADD . .
 
-# specify working directory
-WORKDIR .
+# specify working directory ## Vikrant changed to current dir from /bikeshare_api_model
+WORKDIR . 
 
 # update pip
 RUN pip install --upgrade pip

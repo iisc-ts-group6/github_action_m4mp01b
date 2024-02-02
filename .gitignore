@@ -1,7 +1,9 @@
-# Vikrant added
+# Vikrant added these files to be ignored in git push. Delete these if you want to push these files.
 /bikeshare_model_api/*.whl 
 /dist/*.whl
 /bikeshare_model/trained_models/*.pkl 
+# END Vikrant added
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

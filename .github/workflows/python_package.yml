@@ -21,6 +21,13 @@ jobs:
       - name: Install dependencies
         run: |
           make install
+      
+      # Vikrant added
+      - name: Train
+        run: |
+          make train
+      ## END Vikrant added
+
       - name: Lint with pylint
         run: |
           make lint
@@ -30,4 +37,11 @@ jobs:
       - name: Format code with Black
         run: |
           make format
+      - name: Package
+        run: |
+          make package
+      - name: Dockerize and push
+        run: |
+          make dockerize_api
+          make docker_push_img
           

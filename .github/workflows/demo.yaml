@@ -34,3 +34,13 @@ jobs:
       - name: test with pytest
         run: |
           pytest
+
+# Vikrant added
+      - name: Package
+        run: |
+          make package
+      - name: Dockerize and push
+        run: |
+          make dockerize_api
+          make docker_push_img
+# END Vikrant added

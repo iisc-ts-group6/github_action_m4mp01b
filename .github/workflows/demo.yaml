@@ -3,10 +3,10 @@ on:
   push:
     branches: 
       - main
-
   pull_request:
     branches: 
-    - "main"
+      - main
+      
 jobs: 
   train:
     runs-on: ubuntu-latest
@@ -25,6 +25,7 @@ jobs:
         name: my-trained-pipeline
         path: bikeshare_model/trained_models/*.pkl
         retention-days: 1
+    
   test:
     needs: train
     runs-on: ubuntu-latest
@@ -41,7 +42,7 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements/test_requirements.txt
     - name: Test with pytest
-    run: pytest
+      run: pytest
   build:
     needs: [train, test]
     runs-on: ubuntu-latest

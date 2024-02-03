@@ -84,7 +84,6 @@ push-image:
     env:
       DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
     run: docker push $DOCKER_USER/bikeshare-fastapi
-  
   - name: Logout to Docker hub
     run: docker logout      
       

@@ -38,6 +38,7 @@ jobs:
 # Vikrant added
       - name: Dockerize and push
         run: |
-          make dockerize_api
-          make docker_push_img
+          make build
+          make push
+          make release
 # END Vikrant added

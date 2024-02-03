@@ -86,3 +86,4 @@ push-image:
     run: docker push $DOCKER_USER/bikeshare-fastapi
   - name: Logout to Docker hub
     run: docker logout      
+    #

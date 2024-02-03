@@ -12,11 +12,16 @@ train:
 
 # test step - already present below this portion
 
-dockerize_api:
+build:
 	docker build . -t vikrantpayal/bikeshare-fastapi:3-feb
 
-docker_push_img:
-	docker push vikrantpayal/bikeshare-fastapi:latest
+push:
+	docker push ${DOCKER_USER_NAME}/bikeshare-fastapi:latest
+
+release: 
+	docker pull ${DOCKER_USER_NAME}/bikeshare-fastapi:${GIT_HASH}
+	docker tag  ${DOCKER_USER_NAME}/bikeshare-fastapi:${GIT_HASH} ${DOCKER_USER_NAME}/bikeshare-fastapi:latest
+	docker push ${DOCKER_USER_NAME}/bikeshare-fastapi:latest
 ## END Vikrant added
 
 test:

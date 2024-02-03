@@ -13,7 +13,7 @@ train:
 # test step - already present below this portion
 
 build:
-	docker build . -t ${DOCKER_USER_NAME}/bikeshare-fastapi:latest
+	docker build . --tag ${{DOCKER_USER_NAME}}/bikeshare-fastapi:latest
 
 push:
 	docker push ${DOCKER_USER_NAME}/bikeshare-fastapi:latest

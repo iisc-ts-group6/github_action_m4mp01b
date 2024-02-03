@@ -18,3 +18,5 @@ EXPOSE 8001
 
 # start fastapi application
 CMD ["python", "app/main.py"]
+
+#

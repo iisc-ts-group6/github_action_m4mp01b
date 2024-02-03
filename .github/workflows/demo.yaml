@@ -37,7 +37,7 @@ jobs:
         path: bikeshare_model/trained_models
     - name: Install dependencies
       run: pip install -r requirements/test_requirements.txt
-  - name: Test with pytest
+    - name: Test with pytest
     run: pytest
 build:
   needs: [train, test]
@@ -75,17 +75,18 @@ push-image:
     env:
       DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}      
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASS_TOKEN }}
-  run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-- name: Build the Docker image for Fastapi app
-  env:
-    DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-  run: docker build . -f Dockerfile -t $DOCKER_USER/bikeshare-fastapi:latest
-- name: Push the Docker Image
-  env:
-    DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-  run: docker push $DOCKER_USER/bikeshare-fastapi
-- name: Logout to Docker hub
-  run: docker logout      
+    run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+  - name: Build the Docker image for Fastapi app
+    env:
+      DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
+    run: docker build . -f Dockerfile -t $DOCKER_USER/bikeshare-fastapi:latest
+  - name: Push the Docker Image
+    env:
+      DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
+    run: docker push $DOCKER_USER/bikeshare-fastapi
+  
+  - name: Logout to Docker hub
+    run: docker logout      
       
       
       

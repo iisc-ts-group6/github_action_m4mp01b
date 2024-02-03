@@ -13,14 +13,14 @@ train:
 # test step - already present below this portion
 
 build:
-	docker build . --tag ${{DOCKER_USER_NAME}}/bikeshare-fastapi:latest
+	docker build . --tag ${DOCKER_USER_NAME}/bikeshare-fastapi:latest
 
 push:
 	docker push ${DOCKER_USER_NAME}/bikeshare-fastapi:latest
 
 release: 
-	docker pull ${DOCKER_USER_NAME}/bikeshare-fastapi:${GIT_HASH}
-	docker tag  ${DOCKER_USER_NAME}/bikeshare-fastapi:${GIT_HASH} ${DOCKER_USER_NAME}/bikeshare-fastapi:latest
+	docker pull ${DOCKER_USER_NAME}/bikeshare-fastapi:latest
+	docker tag  ${DOCKER_USER_NAME}/bikeshare-fastapi:latest ${DOCKER_USER_NAME}/bikeshare-fastapi:latest
 	docker push ${DOCKER_USER_NAME}/bikeshare-fastapi:latest
 ## END Vikrant added
 
